@@ -1,76 +1,79 @@
 import java.util.Scanner;
 
-public class Calculadora {
-
-    public static double somar(double num1, double num2) {
+public class Calculadora{
+     public static double somar(double num1, double num2){
         return num1 + num2;
-    }
-
-    public static double subtrair(double num1, double num2) {
+     }
+    public static double subtrair(double num1, double num2){
         return num1 - num2;
     }
-
-    public static double multiplicar(double num1, double num2) {
+    public static double multiplicar(double num1, double num2){
         return num1 * num2;
     }
-
-    public static double dividir(double num1, double num2) {
-         return num1 / num2;
+    public static double dividir(double num1, double num2){
+        return num1/ num2;
     }
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        boolean continuar = true;
+         Scanner scanner = new Scanner(System.in);
+         boolean continuar = true;
+         String operação = "invalido";
+         double num1;
+         double num2;
+         int escolha;
+         double resultado = 0.0;
 
-        while (continuar) {
-            System.out.print("Digite o primeiro número: ");
-            double num1 = scanner.nextDouble();
+         while (continuar) {
+         if (operação.equals("invalido")){
+         System.out.print("Digite o primeiro número: ");
+            num1 = scanner.nextDouble(); 
+         System.out.println("Digite o segundo número: ");
+            num2 = scanner.nextDouble();
+         } else {
+            num1 = resultado;
+            System.out.println("Digite o segundo número:");
+            num2 = scanner.nextDouble();
+         }
+         
+                    
+         
 
-            System.out.println("Escolha a operação: ");
-            System.out.println("1. Soma");
-            System.out.println("2. Subtração");
-            System.out.println("3. Multiplicação");
-            System.out.println("4. Divisão");
+         System.out.println("Escolha a operação: ");
+         System.out.println("1. Soma");
+         System.out.println("2. Subtração");
+         System.out.println("3. Multiplicação");
+         System.out.println("4. Divisão");
+         System.out.println("5. Limpar Memória"); 
+         escolha = scanner.nextInt();
 
-            int escolha = scanner.nextInt();
-            scanner.nextLine(); // Limpar o buffer
 
-            System.out.print("Digite o segundo número: ");
-            double num2 = scanner.nextDouble();
-
-            double resultado = 2.0;
-            String operacao = "";
-
-            switch (escolha) {
-                case 1:
+         switch (escolha){
+            case 1:
                     resultado = somar(num1, num2);
-                    operacao = "soma";
+                    operação = "soma";
                     break;
-                case 2:
+            case 2:
                     resultado = subtrair(num1, num2);
-                    operacao = "subtração";
+                    operação = "subtração";
                     break;
-                case 3:
+            case 3:
                     resultado = multiplicar(num1, num2);
-                    operacao = "multiplicação";
+                    operação = "multiplicação";
                     break;
-                case 4:
-                    try {
-                        resultado = dividir(num1, num2);
-                        operacao = "divisão";
-                    } catch (ArithmeticException e) {
-                        System.out.println("Erro: " + e.getMessage());
-                        continue; // Volta ao início do loop
-                    }
+            case 4:
+                    resultado = dividir (num1, num2);
+                    operação = "dividir";
                     break;
-                default:
+                    default:
                     System.out.println("Escolha inválida.");
-                    continue; // Volta ao início do loop
-            }
+            case 5:
+                    resultado = 0.0; // Limpar a memória, resetando o resultado
+                    operação = "invalido";
+                    break;
+         }
 
-            System.out.println("Resultado da " + operacao + ": " + resultado);
+         System.out.println("Resultado da " + operação + ": " + resultado);
 
-            System.out.println("Deseja continuar? (Digite 'sair' para sair ou pressione Enter para continuar)");
+         System.out.println("Deseja continuar? (Digite 'sair' para sair ou pressione Enter para continuar)");
             String opcao = scanner.nextLine();
             if (opcao.equalsIgnoreCase("sair")) {
                 continuar = false;
@@ -78,9 +81,35 @@ public class Calculadora {
         }
 
         scanner.close();
-        System.out.println("Obrigado por usar a calculadora!");
+        System.out.println("Muito obrigado por usar a calculadora!");
     }
 }
+
+
+            
+        
+        
+         
+         
+        
+        
+
+
+         
+
+            
+
+
+        
+
+    
+        
+        
+
+
+    
+
+
 
 
 
