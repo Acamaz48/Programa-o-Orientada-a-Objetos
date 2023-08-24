@@ -64,11 +64,13 @@ public class Calculadora{
                     operação = "dividir";
                     break;
                     default:
-                    System.out.println("Escolha inválida.");
+                    
             case 5:
                     resultado = 0.0; // Limpar a memória, resetando o resultado
                     operação = "invalido";
                     break;
+                   default: 
+                    System.out.println("Escolha inválida.");
          }
 
          System.out.println("Resultado da " + operação + ": " + resultado);
