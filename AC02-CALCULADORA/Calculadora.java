@@ -13,6 +13,9 @@ public class Calculadora{
     public static double dividir(double num1, double num2){
         return num1/ num2;
     }
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
          Scanner scanner = new Scanner(System.in);
          boolean continuar = true;
@@ -69,7 +72,7 @@ public class Calculadora{
                     resultado = 0.0; // Limpar a memória, resetando o resultado
                     operação = "invalido";
                     break;
-                   default: 
+                    default: 
                     System.out.println("Escolha inválida.");
          }
 
